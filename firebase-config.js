@@ -5,12 +5,12 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebas
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_REAL_API_KEY",
+  apiKey: "AIzaSyDnvNGBKUH_wQT7GmELb1ye5G4eW-Fmns",
   authDomain: "ijmch-bf355.firebaseapp.com",
   projectId: "ijmch-bf355",
   storageBucket: "ijmch-bf355.appspot.com",
   messagingSenderId: "218231333552",
-  appId: "1:218231333552:web:YOUR_REAL_ID",
+  appId: "1:218231333552:web:30e96d80aad616c97f1175",
   measurementId: "G-FRLL9JT2ER"
 };
 
