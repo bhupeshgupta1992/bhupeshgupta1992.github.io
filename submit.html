@@ -9,16 +9,15 @@
 <body class="bg-light">
 
 <div class="container mt-5">
-<div class="card p-4">
-<h3>Submit Manuscript</h3>
+  <div class="card p-4">
+    <h3>Submit Manuscript</h3>
 
-<input type="text" id="title" class="form-control mb-2" placeholder="Manuscript Title">
-<textarea id="abstract" class="form-control mb-2" placeholder="Abstract"></textarea>
-<input type="file" id="file" class="form-control mb-2">
+    <input type="text" id="title" class="form-control mb-2" placeholder="Manuscript Title">
+    <textarea id="abstract" class="form-control mb-2" placeholder="Abstract"></textarea>
+    <input type="file" id="file" class="form-control mb-3">
 
-<button onclick="submitManuscript()" class="btn btn-primary">Submit</button>
-
-</div>
+    <button id="submitBtn" class="btn btn-primary">Submit</button>
+  </div>
 </div>
 
 <script type="module">
@@ -26,8 +25,12 @@ import { auth, db, storage } from "./firebase-config.js";
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
-window.submitManuscript = async function() {
+const submitBtn = document.getElementById("submitBtn");
+
+submitBtn.addEventListener("click", async () => {
+
   const user = auth.currentUser;
+
   if (!user) {
     alert("Please login first");
     return;
@@ -37,27 +40,35 @@ window.submitManuscript = async function() {
   const abstract = document.getElementById("abstract").value;
   const file = document.getElementById("file").files[0];
 
-  if (!file) {
-    alert("Please upload manuscript file");
+  if (!title || !abstract || !file) {
+    alert("Please fill all fields and upload file");
     return;
   }
 
-  const storageRef = ref(storage, "manuscripts/" + file.name);
-  await uploadBytes(storageRef, file);
-  const fileURL = await getDownloadURL(storageRef);
+  try {
+    // Upload file
+    const storageRef = ref(storage, "manuscripts/" + Date.now() + "_" + file.name);
+    await uploadBytes(storageRef, file);
+    const fileURL = await getDownloadURL(storageRef);
 
-  await addDoc(collection(db, "submissions"), {
-    title: title,
-    abstract: abstract,
-    authorEmail: user.email,
-    fileURL: fileURL,
-    status: "Submitted",
-    createdAt: new Date()
-  });
+    // Save submission in Firestore
+    await addDoc(collection(db, "submissions"), {
+      title: title,
+      abstract: abstract,
+      authorEmail: user.email,
+      fileURL: fileURL,
+      status: "Submitted",
+      createdAt: new Date()
+    });
 
-  alert("Manuscript submitted successfully!");
-  window.location.href = "dashboard.html";
-}
+    alert("Manuscript submitted successfully!");
+    window.location.href = "dashboard.html";
+
+  } catch (error) {
+    alert(error.message);
+  }
+
+});
 </script>
 
 </body>
