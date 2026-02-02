@@ -21,57 +21,67 @@
 </div>
 
 <script type="module">
-  alert("Submit JS Loaded");
+
 import { auth, db, storage } from "./firebase-config.js";
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-let currentUser = null;
+document.addEventListener("DOMContentLoaded", () => {
 
-onAuthStateChanged(auth, (user) => {
-  currentUser = user;
+  alert("Submit JS Loaded");
+
+  let currentUser = null;
+
+  onAuthStateChanged(auth, (user) => {
+    currentUser = user;
+  });
+
+  const submitBtn = document.getElementById("submitBtn");
+
+  submitBtn.addEventListener("click", async () => {
+
+    alert("Button clicked");  // debugging line
+
+    if (!currentUser) {
+      alert("Please login first");
+      return;
+    }
+
+    const title = document.getElementById("title").value;
+    const abstract = document.getElementById("abstract").value;
+    const file = document.getElementById("file").files[0];
+
+    if (!title || !abstract || !file) {
+      alert("Please fill all fields and upload file");
+      return;
+    }
+
+    try {
+      const storageRef = ref(storage, "manuscripts/" + Date.now() + "_" + file.name);
+      await uploadBytes(storageRef, file);
+      const fileURL = await getDownloadURL(storageRef);
+
+      await addDoc(collection(db, "submissions"), {
+        title: title,
+        abstract: abstract,
+        authorEmail: currentUser.email,
+        fileURL: fileURL,
+        status: "Submitted",
+        createdAt: new Date()
+      });
+
+      alert("Manuscript submitted successfully!");
+      window.location.href = "dashboard.html";
+
+    } catch (error) {
+      alert(error.message);
+    }
+
+  });
+
 });
 
-const submitBtn = document.getElementById("submitBtn");
-
-submitBtn.addEventListener("click", async () => {
-
-  if (!currentUser) {
-    alert("Please login first");
-    return;
-  }
-
-  const title = document.getElementById("title").value;
-  const abstract = document.getElementById("abstract").value;
-  const file = document.getElementById("file").files[0];
-
-  if (!title || !abstract || !file) {
-    alert("Please fill all fields and upload file");
-    return;
-  }
-
-  try {
-    const storageRef = ref(storage, "manuscripts/" + Date.now() + "_" + file.name);
-    await uploadBytes(storageRef, file);
-    const fileURL = await getDownloadURL(storageRef);
-
-    await addDoc(collection(db, "submissions"), {
-      title: title,
-      abstract: abstract,
-      authorEmail: currentUser.email,
-      fileURL: fileURL,
-      status: "Submitted",
-      createdAt: new Date()
-    });
-
-    alert("Manuscript submitted successfully!");
-    window.location.href = "dashboard.html";
-
-  } catch (error) {
-    alert(error.message);
-  }
-});
 </script>
 
 </body>
