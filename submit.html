@@ -44,46 +44,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   submitBtn.addEventListener("click", async () => {
 
-    alert("Button clicked");  // debugging line
+  alert("Button clicked");
 
-    const currentUser = await getCurrentUser();
+  try {
 
-if (!currentUser) {
-  alert("Please login first");
-  return;
-}
+    await addDoc(collection(db, "submissions"), {
+      title: "Test Title",
+      abstract: "Test Abstract",
+      status: "Submitted",
+      createdAt: new Date()
+    });
 
-    const title = document.getElementById("title").value;
-    const abstract = document.getElementById("abstract").value;
-    const file = document.getElementById("file").files[0];
+    alert("Firestore write successful!");
 
-    if (!title || !abstract || !file) {
-      alert("Please fill all fields and upload file");
-      return;
-    }
-
-    try {
-      const storageRef = ref(storage, "manuscripts/" + Date.now() + "_" + file.name);
-      await uploadBytes(storageRef, file);
-      const fileURL = await getDownloadURL(storageRef);
-
-      await addDoc(collection(db, "submissions"), {
-        title: title,
-        abstract: abstract,
-        authorEmail: currentUser.email,
-        fileURL: fileURL,
-        status: "Submitted",
-        createdAt: new Date()
-      });
-
-      alert("Manuscript submitted successfully!");
-      window.location.href = "dashboard.html";
-
-    } catch (error) {
-  console.error("FULL ERROR:", error);
-  alert("Error: " + JSON.stringify(error));
-    }
-  });
+  } catch (error) {
+    alert("Firestore Error: " + error.message);
+  }
 
 });
 
