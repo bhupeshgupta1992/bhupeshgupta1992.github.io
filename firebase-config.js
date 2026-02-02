@@ -1,3 +1,9 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDnNVGBKUHh_wQT7GmELb1ye5G4eW-Fmms",
   authDomain: "ijmch-bf355.firebaseapp.com",
@@ -7,3 +13,12 @@ const firebaseConfig = {
   appId: "1:218231333552:web:36e96d80aad616c97f1175",
   measurementId: "G-FRLL9JT2ER"
 };
+
+const app = initializeApp(firebaseConfig);
+getAnalytics(app);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+export { auth, db, storage };
