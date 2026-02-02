@@ -1,20 +1,24 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDnNVGBKUHh_wQT7GmELb1ye5G4eW-Fmms",
+  apiKey: "YOUR_REAL_API_KEY",
   authDomain: "ijmch-bf355.firebaseapp.com",
   projectId: "ijmch-bf355",
   storageBucket: "ijmch-bf355.appspot.com",
   messagingSenderId: "218231333552",
-  appId: "1:218231333552:web:36e96d80aad616c97f1175",
+  appId: "1:218231333552:web:YOUR_REAL_ID",
   measurementId: "G-FRLL9JT2ER"
 };
 
 const app = initializeApp(firebaseConfig);
+getAnalytics(app);
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+export { auth, db, storage };
