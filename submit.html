@@ -44,24 +44,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   submitBtn.addEventListener("click", async () => {
 
-  alert("Button clicked");
+  alert("Testing Firestore");
 
   try {
 
-    await addDoc(collection(db, "submissions"), {
-      title: "Test Title",
-      abstract: "Test Abstract",
-      status: "Submitted",
-      createdAt: new Date()
+    console.log("DB object:", db);
+
+    const docRef = await addDoc(collection(db, "submissions"), {
+      test: "hello",
+      time: new Date()
     });
 
-    alert("Firestore write successful!");
+    alert("Document ID: " + docRef.id);
 
   } catch (error) {
-    alert("Firestore Error: " + error.message);
+    alert("Error: " + error.message);
   }
 
 });
+
 
 </script>
 
