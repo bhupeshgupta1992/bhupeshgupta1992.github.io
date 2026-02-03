@@ -16,86 +16,11 @@
     <textarea id="abstract" class="form-control mb-2" placeholder="Abstract"></textarea>
     <input type="file" id="file" class="form-control mb-3">
 
-    <button type="button" id="submitBtn">Submit</button>
+    <button id="submitBtn">Submit</button>
   </div>
 </div>
 
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDnvNGBKUH_wQT7GmELb1ye5G4eW-Fmns",
-  authDomain: "ijmch-bf355.firebaseapp.com",
-  projectId: "ijmch-bf355",
-  storageBucket: "ijmch-bf355.appspot.com",
-  messagingSenderId: "218231333552",
-  appId: "1:218231333552:web:30e96d80aad616c97f1175",
-  measurementId: "G-FRLL9JT2ER"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  let currentUser = null;
-
-  onAuthStateChanged(auth, (user) => {
-    currentUser = user;
-  });
-
-  const submitBtn = document.getElementById("submitBtn");
-
-  submitBtn.addEventListener("click", async () => {
-
-    alert("Button clicked");
-
-    if (!currentUser) {
-      alert("Please login first");
-      return;
-    }
-
-    const title = document.getElementById("title").value;
-    const abstract = document.getElementById("abstract").value;
-    const file = document.getElementById("file").files[0];
-
-    if (!title || !abstract || !file) {
-      alert("Please fill all fields and upload file");
-      return;
-    }
-
-    try {
-      const storageRef = ref(storage, "manuscripts/" + Date.now() + "_" + file.name);
-      await uploadBytes(storageRef, file);
-      const fileURL = await getDownloadURL(storageRef);
-
-      await addDoc(collection(db, "submissions"), {
-        title: title,
-        abstract: abstract,
-        authorEmail: currentUser.email,
-        fileURL: fileURL,
-        status: "Submitted",
-        createdAt: new Date()
-      });
-
-      alert("Manuscript submitted successfully!");
-      window.location.href = "dashboard.html";
-
-    } catch (error) {
-      alert("Error: " + error.message);
-    }
-
-  });
-
-});
-
-</script>
+<script type="module" src="submit.js"></script>
 
 
 </body>
