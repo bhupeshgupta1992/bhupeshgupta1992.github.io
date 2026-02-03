@@ -22,49 +22,81 @@
 
 <script type="module">
 
-import { auth, db, storage } from "./firebase-config.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDnvNGBKUH_wQT7GmELb1ye5G4eW-Fmns",
+  authDomain: "ijmch-bf355.firebaseapp.com",
+  projectId: "ijmch-bf355",
+  storageBucket: "ijmch-bf355.appspot.com",
+  messagingSenderId: "218231333552",
+  appId: "1:218231333552:web:30e96d80aad616c97f1175",
+  measurementId: "G-FRLL9JT2ER"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  alert("Submit JS Loaded");
+  let currentUser = null;
 
-  function getCurrentUser() {
-  return new Promise((resolve, reject) => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      unsubscribe();
-      resolve(user);
-    }, reject);
+  onAuthStateChanged(auth, (user) => {
+    currentUser = user;
   });
-  }
 
   const submitBtn = document.getElementById("submitBtn");
 
   submitBtn.addEventListener("click", async () => {
 
-  alert("Testing Firestore");
+    alert("Button clicked");
 
-  try {
+    if (!currentUser) {
+      alert("Please login first");
+      return;
+    }
 
-    console.log("DB object:", db);
+    const title = document.getElementById("title").value;
+    const abstract = document.getElementById("abstract").value;
+    const file = document.getElementById("file").files[0];
 
-    const docRef = await addDoc(collection(db, "submissions"), {
-      test: "hello",
-      time: new Date()
-    });
+    if (!title || !abstract || !file) {
+      alert("Please fill all fields and upload file");
+      return;
+    }
 
-    alert("Document ID: " + docRef.id);
+    try {
+      const storageRef = ref(storage, "manuscripts/" + Date.now() + "_" + file.name);
+      await uploadBytes(storageRef, file);
+      const fileURL = await getDownloadURL(storageRef);
 
-  } catch (error) {
-    alert("Error: " + error.message);
-  }
+      await addDoc(collection(db, "submissions"), {
+        title: title,
+        abstract: abstract,
+        authorEmail: currentUser.email,
+        fileURL: fileURL,
+        status: "Submitted",
+        createdAt: new Date()
+      });
+
+      alert("Manuscript submitted successfully!");
+      window.location.href = "dashboard.html";
+
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+
+  });
 
 });
 
-
 </script>
+
 
 </body>
 </html>
