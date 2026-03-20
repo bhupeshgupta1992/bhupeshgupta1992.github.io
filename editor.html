@@ -1,43 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Editor Dashboard | IJMCH</title>
 <meta charset="UTF-8">
+<title>Editor Panel | IJMCH</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background:#f5f7fa; }
+.card { border:none; box-shadow:0 2px 10px rgba(0,0,0,0.08); }
+</style>
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
-<h3>Editor Panel - All Submissions</h3>
+<div class="container py-5">
 
-<div id="submissions"></div>
+<h3 class="mb-4">Editor Dashboard</h3>
+
+<div id="editorList">Loading submissions...</div>
 
 </div>
 
-<script type="module">
-import { db } from "./firebase-config.js";
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-const submissionsDiv = document.getElementById("submissions");
-
-async function loadSubmissions() {
-  const querySnapshot = await getDocs(collection(db, "submissions"));
-  querySnapshot.forEach((doc) => {
-    const data = doc.data();
-    submissionsDiv.innerHTML += `
-      <div class="card p-3 mb-3">
-        <h5>${data.title}</h5>
-        <p><strong>Author:</strong> ${data.authorEmail}</p>
-        <p><strong>Status:</strong> ${data.status}</p>
-        <a href="${data.fileURL}" target="_blank" class="btn btn-sm btn-primary">Download Manuscript</a>
-      </div>
-    `;
-  });
-}
-
-loadSubmissions();
-</script>
+<script type="module" src="editor.js"></script>
 
 </body>
 </html>
