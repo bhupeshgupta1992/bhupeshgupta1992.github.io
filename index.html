@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>IJMCH | Indian Journal of Mental and Community Health</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,43 +21,79 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:'Inter', sans-serif;
-    background:#f5f7fb;
-    color:#1c1c1c;
-    line-height:1.7;
-}
-
 html{
     scroll-behavior:smooth;
 }
 
-.topbar{
-    background:#002b45;
+body{
+    font-family:'Inter',sans-serif;
+    background:#050816;
     color:white;
-    padding:10px 80px;
-    font-size:14px;
+    line-height:1.8;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Background Glow */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:550px;
+    height:550px;
+    background:#00d4ff20;
+    border-radius:50%;
+    top:-220px;
+    left:-150px;
+    filter:blur(140px);
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:550px;
+    height:550px;
+    background:#7f5af020;
+    border-radius:50%;
+    bottom:-220px;
+    right:-150px;
+    filter:blur(140px);
+    z-index:-1;
+}
+
+/* Topbar */
+
+.topbar{
+    background:#020817;
+    color:white;
+    padding:12px 80px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    font-size:14px;
 }
 
 .topbar a{
     color:white;
     text-decoration:none;
-    margin-left:20px;
+    margin-left:18px;
 }
 
+/* Header */
+
 header{
-    background:white;
+    background:rgba(5,8,22,0.75);
+    backdrop-filter:blur(18px);
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:22px 80px;
-    box-shadow:0 2px 15px rgba(0,0,0,0.05);
     position:sticky;
     top:0;
     z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo-section{
@@ -63,120 +103,135 @@ header{
 }
 
 .logo{
-    width:75px;
-    height:75px;
+    width:78px;
+    height:78px;
     border-radius:50%;
     object-fit:cover;
+    border:3px solid #00d4ff;
 }
 
 .logo-text h1{
-    font-size:24px;
-    color:#002b45;
+    font-size:28px;
     font-weight:800;
+    background:linear-gradient(90deg,#00d4ff,#7f5af0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .logo-text p{
-    color:#666;
+    color:#d7d7d7;
     font-size:14px;
 }
 
 nav a{
-    margin-left:30px;
+    margin-left:24px;
     text-decoration:none;
-    color:#222;
+    color:white;
     font-weight:600;
     transition:0.3s;
 }
 
 nav a:hover{
-    color:#0073e6;
+    color:#00d4ff;
 }
 
 .submit-btn{
-    background:#0073e6;
-    color:white;
+    background:linear-gradient(135deg,#00d4ff,#7f5af0);
     padding:12px 22px;
-    border-radius:6px;
+    border-radius:50px;
 }
 
+/* Hero */
+
 .hero{
-    height:700px;
+    min-height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1400&auto=format&fit=crop');
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+    url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1600&auto=format&fit=crop');
     background-size:cover;
     background-position:center;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
-    color:white;
     padding:40px;
 }
 
 .hero-content{
-    max-width:950px;
+    max-width:1000px;
 }
 
 .hero h2{
-    font-size:68px;
-    line-height:1.15;
-    margin-bottom:25px;
+    font-size:82px;
+    line-height:1.08;
+    margin-bottom:28px;
     font-weight:800;
+    background:linear-gradient(90deg,#00d4ff,#7f5af0,#00ffb3);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .hero p{
     font-size:22px;
-    line-height:1.8;
-    margin-bottom:35px;
-    color:#e3e3e3;
+    color:#d7d7d7;
+    margin-bottom:45px;
+    line-height:1.9;
 }
+
+/* Hero Buttons */
 
 .hero-buttons a{
     display:inline-block;
-    padding:16px 34px;
     margin:10px;
-    border-radius:8px;
+    padding:16px 34px;
+    border-radius:50px;
     text-decoration:none;
     font-weight:700;
     transition:0.3s;
 }
 
 .primary-btn{
-    background:#0073e6;
+    background:linear-gradient(135deg,#00d4ff,#7f5af0);
     color:white;
 }
 
 .secondary-btn{
-    background:white;
-    color:#0073e6;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    color:white;
 }
 
 .primary-btn:hover,
 .secondary-btn:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
+/* Sections */
+
 .section{
-    padding:90px 80px;
+    padding:100px 80px;
 }
 
 .section-title{
-    font-size:42px;
-    color:#002b45;
-    margin-bottom:15px;
+    font-size:56px;
     font-weight:800;
     text-align:center;
+    margin-bottom:18px;
+    background:linear-gradient(90deg,#00d4ff,#7f5af0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .section-subtitle{
     text-align:center;
-    color:#666;
-    max-width:800px;
+    color:#d7d7d7;
+    max-width:850px;
     margin:auto;
-    margin-bottom:60px;
-    font-size:18px;
+    margin-bottom:70px;
+    font-size:19px;
 }
+
+/* Article Grid */
 
 .article-grid{
     display:grid;
@@ -185,79 +240,106 @@ nav a:hover{
 }
 
 .article-card{
-    background:white;
-    border-radius:16px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:30px;
     padding:35px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.07);
-    transition:0.3s;
+    backdrop-filter:blur(18px);
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.article-card::before{
+    content:'';
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:#00d4ff12;
+    border-radius:50%;
+    top:-60px;
+    right:-60px;
 }
 
 .article-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px);
+    border-color:#00d4ff;
+    box-shadow:0 20px 50px rgba(0,212,255,0.18);
 }
 
 .article-type{
-    color:#0073e6;
-    font-size:13px;
-    text-transform:uppercase;
+    display:inline-block;
+    background:linear-gradient(135deg,#00d4ff,#7f5af0);
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:12px;
     font-weight:700;
-    letter-spacing:1px;
+    margin-bottom:20px;
 }
 
 .article-card h3{
-    font-size:26px;
-    line-height:1.4;
-    margin-top:15px;
-    margin-bottom:15px;
-    color:#002b45;
+    font-size:28px;
+    line-height:1.5;
+    margin-bottom:18px;
 }
 
 .authors{
-    color:#666;
+    color:#00d4ff;
     margin-bottom:18px;
 }
 
 .abstract{
-    color:#444;
-    margin-bottom:22px;
+    color:#d7d7d7;
+    margin-bottom:25px;
 }
 
 .read-btn{
+    color:#00d4ff;
     text-decoration:none;
-    color:#0073e6;
     font-weight:700;
 }
 
+/* Stats */
+
 .stats{
-    background:#002b45;
-    color:white;
+    background:linear-gradient(135deg,#021624,#061f3a);
     display:grid;
     grid-template-columns:repeat(4,1fr);
     text-align:center;
-    padding:80px;
+    padding:100px 80px;
 }
 
 .stat-box h3{
-    font-size:58px;
+    font-size:64px;
     margin-bottom:10px;
+    color:#00d4ff;
 }
 
 .stat-box p{
-    color:#d8d8d8;
+    color:#d7d7d7;
 }
+
+/* Editorial */
 
 .editor-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:35px;
 }
 
 .editor-card{
-    background:white;
-    border-radius:16px;
-    text-align:center;
+    background:rgba(255,255,255,0.05);
+    border-radius:30px;
     padding:35px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.07);
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    transition:0.4s;
+}
+
+.editor-card:hover{
+    transform:translateY(-10px);
+    border-color:#00d4ff;
 }
 
 .editor-card img{
@@ -265,54 +347,59 @@ nav a:hover{
     height:140px;
     border-radius:50%;
     object-fit:cover;
-    margin-bottom:20px;
+    margin-bottom:22px;
+    border:3px solid #00d4ff;
 }
 
 .editor-card h3{
-    color:#002b45;
-    margin-bottom:8px;
+    margin-bottom:10px;
 }
 
 .editor-card p{
-    color:#666;
+    color:#d7d7d7;
 }
 
-.indexing{
-    background:white;
-}
+/* Indexing */
 
 .index-grid{
     display:flex;
     flex-wrap:wrap;
-    gap:20px;
     justify-content:center;
+    gap:18px;
 }
 
 .index-item{
-    background:#f5f7fb;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
     padding:18px 30px;
-    border-radius:40px;
-    border:1px solid #dbe4ef;
+    border-radius:50px;
+    backdrop-filter:blur(15px);
     font-weight:600;
 }
 
+/* CTA */
+
 .cta-section{
-    background:linear-gradient(135deg,#002b45,#0073e6);
-    color:white;
+    background:
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+    url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
     text-align:center;
-    padding:100px 40px;
+    padding:130px 40px;
 }
 
 .cta-section h2{
-    font-size:48px;
-    margin-bottom:20px;
+    font-size:56px;
+    margin-bottom:22px;
 }
 
 .cta-section p{
-    max-width:800px;
+    max-width:850px;
     margin:auto;
+    color:#d7d7d7;
     font-size:20px;
-    margin-bottom:35px;
+    margin-bottom:40px;
 }
 
 .cta-section a{
@@ -320,15 +407,16 @@ nav a:hover{
     background:white;
     color:#0073e6;
     padding:16px 34px;
-    border-radius:8px;
+    border-radius:50px;
     text-decoration:none;
     font-weight:700;
 }
 
+/* Footer */
+
 footer{
-    background:#001521;
-    color:white;
-    padding:80px;
+    background:#02040f;
+    padding:90px 80px;
 }
 
 .footer-grid{
@@ -338,14 +426,15 @@ footer{
 }
 
 .footer-grid h3{
-    margin-bottom:20px;
+    margin-bottom:22px;
+    color:#00d4ff;
 }
 
 .footer-grid a{
     display:block;
     color:#d7d7d7;
     text-decoration:none;
-    margin-bottom:12px;
+    margin-bottom:14px;
 }
 
 .footer-grid p{
@@ -353,12 +442,14 @@ footer{
 }
 
 .copyright{
-    border-top:1px solid rgba(255,255,255,0.1);
-    margin-top:50px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:55px;
     padding-top:25px;
     text-align:center;
-    color:#cfcfcf;
+    color:#bdbdbd;
 }
+
+/* Responsive */
 
 @media(max-width:1000px){
 
@@ -378,7 +469,7 @@ nav a{
 }
 
 .hero h2{
-    font-size:42px;
+    font-size:48px;
 }
 
 .hero p{
@@ -399,7 +490,7 @@ nav a{
 }
 
 .topbar{
-    padding:12px 20px;
+    padding:15px 20px;
     flex-direction:column;
     gap:10px;
 }
@@ -409,30 +500,33 @@ nav a{
 @media(max-width:700px){
 
 .hero{
-    height:auto;
-    padding:120px 20px;
+    padding:130px 20px;
 }
 
 .hero h2{
-    font-size:34px;
+    font-size:36px;
+}
+
+.section-title{
+    font-size:38px;
 }
 
 .stats{
     grid-template-columns:1fr;
 }
 
-.section-title{
-    font-size:34px;
-}
-
 }
 
 </style>
+
 </head>
 
 <body>
 
+<!-- Topbar -->
+
 <div class="topbar">
+
 <div>
 ISSN: XXXX-XXXX | Peer Reviewed | Open Access Journal
 </div>
@@ -441,30 +535,49 @@ ISSN: XXXX-XXXX | Peer Reviewed | Open Access Journal
 <a href="login.html">Login</a>
 <a href="register.html">Register</a>
 </div>
+
 </div>
+
+<!-- Header -->
 
 <header>
 
 <div class="logo-section">
+
 <img src="logo.png" class="logo">
 
 <div class="logo-text">
 <h1>IJMCH</h1>
 <p>Indian Journal of Mental and Community Health</p>
 </div>
+
 </div>
 
 <nav>
+
 <a href="index.html">Home</a>
+
 <a href="current-issue.html">Current Issue</a>
+
 <a href="archives.html">Archives</a>
+
 <a href="editorial.html">Editorial Board</a>
+
+<a href="guidelines.html">Guidelines</a>
+
 <a href="about.html">About</a>
+
 <a href="contact.html">Contact</a>
-<a href="submit.html" class="submit-btn">Submit Manuscript</a>
+
+<a href="submit.html" class="submit-btn">
+Submit Manuscript
+</a>
+
 </nav>
 
 </header>
+
+<!-- Hero -->
 
 <section class="hero">
 
@@ -480,30 +593,49 @@ systematic reviews, meta-analyses, clinical innovations, and public health disco
 </p>
 
 <div class="hero-buttons">
-<a href="current-issue.html" class="primary-btn">Explore Current Issue</a>
-<a href="submit.html" class="secondary-btn">Submit Your Manuscript</a>
+
+<a href="current-issue.html" class="primary-btn">
+Explore Current Issue
+</a>
+
+<a href="submit.html" class="secondary-btn">
+Submit Manuscript
+</a>
+
+<a href="guidelines.html" class="secondary-btn">
+Author Guidelines
+</a>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- Current Issue -->
+
 <section class="section">
 
-<h2 class="section-title">Current Issue</h2>
+<h2 class="section-title">
+Current Issue
+</h2>
 
 <p class="section-subtitle">
-Explore the latest peer-reviewed research articles published in IJMCH.
+Explore the latest peer-reviewed publications from the Indian Journal of Mental and Community Health.
 </p>
 
 <div class="article-grid">
 
+<!-- Article 1 -->
+
 <div class="article-card">
 
-<span class="article-type">Original Article</span>
+<div class="article-type">
+ORIGINAL ARTICLE
+</div>
 
 <h3>
-Prevalence and Determinants of Common Mental Disorders Among Women in Rural Areas of Ambala: A Community-Based Cross-Sectional Study in Haryana
+Prevalence and Determinants of Common Mental Disorders Among Women in Rural Areas of Ambala
 </h3>
 
 <p class="authors">
@@ -511,36 +643,7 @@ Kashish Narula, Prerna Sharma, Anshu Mittal
 </p>
 
 <p class="abstract">
-Background:
-Common mental disorders (CMDs), including depression and anxiety,
-disproportionately affect rural women in India due to socio-economic, gender, and
-cultural factors. Localized data from villages in rural Haryana are limited.
-Objectives:
-To determine the prevalence of CMDs and associated socio-demographic and
-contextual determinants among adult women in Village Dheen (also spelt Dhin), Barara
-Tehsil, Ambala District, Haryana.
-Methods:
-Community-based cross-sectional study in Village Dheen (2011 Census: population
-5,196; females 2,463; agrarian setting) during hypothetical January–June 2025
-fieldwork. Systematic random sampling enrolled 340 eligible women aged 18–60 years
-(resident ≥1 year). CMD screening used GHQ-12 (cut-off ≥3 for caseness), with PHQ-
-9 (depression) and GAD-7 (anxiety) for symptom severity. Socio-demographics, family
-type, and self-reported stressors were collected via a pre-tested questionnaire.
-Analysis: SPSS v.25; descriptive statistics, chi-square, multivariate logistic regression
-(p<0.05 significant).
-Results:
-Mean age 37.8 ± 10.9 years. CMD prevalence 19.7% (95% CI: 15.6–24.4). Anxiety
-symptoms (GAD-7 ≥8 indicative) 16.2%; depressive symptoms (PHQ-9 ≥10) 13.5%;
-frequent comorbidity. Higher prevalence in the 30–49 age group (23.4%), no/primary
-education (26.8%), widowed/separated/divorced (34.2%), low SES (28.1%), nuclear
-families (22.9%). Independent predictors: low education (AOR 2.6, 95% CI 1.4–4.8),
-marital disruption (AOR 3.4, 95% CI 1.7–6.7), poor financial status (AOR 2.3, 95% CI
-1.3–4.2), domestic/gender stressors (AOR 3.0, 95% CI 1.5–5.9).
-Conclusion:
-Nearly one in five women experiences CMDs, with anxiety being more prominent.
-Education, marital status, economic hardship, and socio-cultural stressors are key.
-Recommend routine screening via ASHA workers and community interventions in rural
-Ambala/Haryana
+Community-based cross-sectional study evaluating prevalence and determinants of common mental disorders among women in rural Haryana.
 </p>
 
 <a href="article1.html" class="read-btn">
@@ -549,12 +652,16 @@ Read Full Article →
 
 </div>
 
+<!-- Article 2 -->
+
 <div class="article-card">
 
-<span class="article-type">Original Article</span>
+<div class="article-type">
+ORIGINAL ARTICLE
+</div>
 
 <h3>
-Impact of Smartphone Addiction on Sleep Quality and Mental Health Among College Students in Haryana: A Cross-Sectional Study
+Impact of Smartphone Addiction on Sleep Quality and Mental Health Among College Students
 </h3>
 
 <p class="authors">
@@ -562,18 +669,7 @@ Ashank Goel, Kapil Kumar Kamboj, Deepmala Kamboj
 </p>
 
 <p class="abstract">
-Background: 
-Smartphone addiction has emerged as a growing public health concern, particularly among college students,
-due to its potential impact on sleep quality and mental health. Excessive smartphone use is associated with 
-behavioural dependence, disrupted sleep patterns, and increased psychological distress. 
-Objective: 
-To assess the prevalence of smartphone addiction and examine its association with sleep quality and mental health among college students in Haryana.
-Methods:
-A cross-sectional study was conducted among 420 undergraduate and postgraduate students aged 18–25 years. Data were collected using standardized tools, including the Smartphone Addiction Scale–Short Version (SAS-SV), Pittsburgh Sleep Quality Index (PSQI), and Depression Anxiety Stress Scale (DASS-21). Descriptive statistics, chi-square test, and Pearson correlation analysis were applied, with p < 0.05 considered statistically significant.
-Results:
-The prevalence of smartphone addiction was 56.7%. Poor sleep quality was reported by 60% of participants. Regarding mental health, 19.1% had severe depression, 19.0% severe anxiety, and 17.9% severe stress. A significant association was observed between smartphone addiction and poor sleep quality (p < 0.001). Correlation analysis revealed moderate positive correlations between smartphone addiction and sleep quality (r = 0.48), depression (r = 0.42), anxiety (r = 0.45), and stress (r = 0.39), all statistically significant.
-Conclusion:
-Smartphone addiction is highly prevalent among college students and is significantly associated with poor sleep quality and adverse mental health outcomes. These findings highlight the need for targeted interventions focusing on responsible smartphone use and improved sleep hygiene to promote overall well-being among students.
+Cross-sectional study examining smartphone addiction, sleep quality, depression, anxiety, and stress among college students in Haryana.
 </p>
 
 <a href="article2.html" class="read-btn">
@@ -582,12 +678,16 @@ Read Full Article →
 
 </div>
 
+<!-- Article 3 -->
+
 <div class="article-card">
 
-<span class="article-type">Original Article</span>
+<div class="article-type">
+ORIGINAL ARTICLE
+</div>
 
 <h3>
-Effect of Screen Time on Cognitive Development and Intelligence Quotient among School-Aged Children in India: A Cross-Sectional Study
+Effect of Screen Time on Cognitive Development and Intelligence Quotient among School-Aged Children
 </h3>
 
 <p class="authors">
@@ -595,16 +695,7 @@ Sadat Qureshi, Shalini Jadia
 </p>
 
 <p class="abstract">
-Background:
-Smartphones have quietly become part of daily routines for many Indian families, so schoolchildren often spend several hours on screens each day, frequently for videos, games, or social media rather than schoolwork. This raises practical questions about how such habits might affect thinking skills while the brain is still developing.
-Objectives:
-We examined whether daily screen time is associated with children's performance in areas such as attention, word reasoning, information-processing speed, and overall cognitive ability.
-Methods:
-From November 2023 to April 2025, we invited 300 children from pediatric clinics and local schools in a semi-urban part of Haryana to join. Parents told us about their child’s usual screen use over the past week. We measured cognitive skills using adapted parts of standard intelligence scales suitable for Indian children. We also noted family income level, parents’ education, how long children slept at night, and how much time they spent playing outside. We examined links with correlations, group comparisons and regression models that took other influences into account.
-Results:
-Children spent an average of 3.4 ± 1.2 hours on screens daily, and 42% went over three hours; most of this time was recreational. Overall cognitive scores sat at 89.6 ± 13.4 on standard scales. Longer screen time was associated with lower scores, especially when daily use exceeded three hours. The pattern stayed visible even after we considered family background, parents’ schooling and sleep length. Attention, verbal reasoning and speed of processing showed the clearest connections.
-Conclusion:
-In this group of Indian school children, more daily screen time—mainly for fun rather than learning—was tied to weaker performance across several thinking areas. Simple steps toward better balance at home and school could help, and longer studies would show whether changes in habits make a real difference over time.
+Observational study assessing the association between prolonged screen exposure and cognitive performance among children.
 </p>
 
 <a href="article3.html" class="read-btn">
@@ -613,67 +704,11 @@ Read Full Article →
 
 </div>
 
-<div class="article-card">
-
-<span class="article-type">Original Article</span>
-
-<h3>
-Caregiver Burden and Its Socio-Clinical Correlates Among Primary Caregivers of Patients with Schizophrenia in Rural Areas Around Delhi-NCR: A Cross-Sectional Study from Community Health Centers in India
-</h3>
-
-<p class="authors">
-Anshika Jain, Dinesh Kataria
-</p>
-
-<p class="abstract">
-Background:
-In rural India, families shoulder most caregiving responsibilities for schizophrenia amid high treatment gaps and limited services. Rural peripheries around Delhi-NCR face distinctive challenges from agricultural livelihoods and variable access to urban facilities. This study assessed caregiver burden using the Burden Assessment Schedule (BAS) and its socio-clinical correlates.
-Methods:
-A cross-sectional community-based study recruited 160 primary caregivers of patients with schizophrenia (ICD-11, duration ≥1 year) from rural health centers and outreach camps in Sonipat and Jhajjar districts, Haryana (August 2025–January 2026). Burden was measured with the Hindi-validated 40-item BAS. Patient symptom severity was evaluated using the Positive and Negative Syndrome Scale (PANSS)—multiple linear regression identified independent predictors of burden.
-Results:
-The mean BAS score was 72.6 ± 15.8, with moderate-to-severe burden in 71.3% of caregivers. The highest-burden domains were the caregiver's physical/mental health (19.4 ± 4.3) and the caregiver’s routine (17.8 ± 4.1). Independent predictors included female caregiver gender (β=9.2, 95% CI 4.6–13.8, P<0.001), low education/agricultural occupation (β=8.1, 95% CI 3.4–12.8, P=0.001), illness duration >5 years (β=7.3, 95% CI 2.9–11.7, P=0.002), higher PANSS total score (β=0.35 per unit, 95% CI 0.21–0.49, P<0.001), and lower family income. Joint families reported a marginally lower burden.
-Conclusion:
-Caregiver burden is alarmingly high in these rural Delhi-NCR areas, aligning with or exceeding recent Indian pooled estimates. Routine caregiver screening, gender-sensitive family psychoeducation, livelihood support, and integration into the District Mental Health Programme are urgently recommended.
-</p>
-
-<a href="article4.html" class="read-btn">
-Read Full Article →
-</a>
-
-</div>
-
-<div class="article-card">
-
-<span class="article-type">Original Article</span>
-
-<h3>
-Awareness, Utilization, and Barriers to Telemedicine Services (eSanjeevani) Among Adults in Rural Communities of Hisar District, Haryana, India: A Community-Based Cross-Sectional Study
-</h3>
-
-<p class="authors">
-Preeti Garg, Roopam Kapoor
-</p>
-
-<p class="abstract">
-Background:
-Telemedicine, particularly the national eSanjeevani platform, has the potential to bridge healthcare gaps in rural India. However, its actual reach in northern agrarian regions remains understudied.
-Objective:
-To assess awareness, utilization, willingness, and barriers to telemedicine services among rural adults in Hisar district, Haryana.
-Methods: A community-based cross-sectional study was conducted among 758 adults aged ≥18 years selected through multistage random sampling from 12 villages during October 2024–March 2025. Data were collected using a pre-tested semi-structured questionnaire.
-Results:
-Awareness of telemedicine/eSanjeevani was only 18.5% (95% CI: 15.8–21.5). Utilization in the past year was 4.1%, with eSanjeevani use at 2.9%. However, 62.4% expressed willingness to use telemedicine in the future. Major barriers included lack of awareness (68.7%), poor digital literacy (45.2%), unreliable internet (39.8%), and preference for in-person visits (32.5%). Higher education, younger age, and smartphone ownership were independent predictors of awareness (p<0.001).
-Conclusion:
-Despite low awareness and utilization, high willingness indicates strong potential for telemedicine in rural Haryana. Targeted awareness campaigns, digital literacy programmes, and infrastructure strengthening are urgently needed to improve uptake.
-</p>
-
-<a href="article5.html" class="read-btn">
-Read Full Article →
-</a>
-
-</div>  
 </div>
 
 </section>
+
+<!-- Stats -->
 
 <section class="stats">
 
@@ -684,7 +719,7 @@ Read Full Article →
 
 <div class="stat-box">
 <h3>25+</h3>
-<p>Countries</p>
+<p>Countries Reached</p>
 </div>
 
 <div class="stat-box">
@@ -699,12 +734,16 @@ Read Full Article →
 
 </section>
 
+<!-- Editorial -->
+
 <section class="section">
 
-<h2 class="section-title">Editorial Leadership</h2>
+<h2 class="section-title">
+Editorial Leadership
+</h2>
 
 <p class="section-subtitle">
-Our editorial board comprises experienced researchers, clinicians and academicians.
+Our editorial board comprises distinguished academicians, clinicians, and researchers.
 </p>
 
 <div class="editor-grid">
@@ -722,7 +761,7 @@ Our editorial board comprises experienced researchers, clinicians and academicia
 </div>
 
 <div class="editor-card">
-<img src="https://randomuser.me/api/portraits/men/52.jpg">
+<img src="Dr Ramita.JPG">
 <h3>Dr. Ramita Goel, MD</h3>
 <p>Associate Editor</p>
 </div>
@@ -737,9 +776,13 @@ Our editorial board comprises experienced researchers, clinicians and academicia
 
 </section>
 
-<section class="section indexing">
+<!-- Indexed -->
 
-<h2 class="section-title">Indexed In</h2>
+<section class="section">
+
+<h2 class="section-title">
+Indexed In
+</h2>
 
 <p class="section-subtitle">
 IJMCH is committed to global visibility and research dissemination.
@@ -748,75 +791,110 @@ IJMCH is committed to global visibility and research dissemination.
 <div class="index-grid">
 
 <div class="index-item">Google Scholar</div>
+
 <div class="index-item">CrossRef</div>
+
 <div class="index-item">ROAD</div>
+
 <div class="index-item">ResearchBib</div>
+
 <div class="index-item">Dimensions</div>
+
 <div class="index-item">Semantic Scholar</div>
+
 <div class="index-item">OpenAlex</div>
+
 <div class="index-item">Scilit</div>
 
 </div>
 
 </section>
 
+<!-- CTA -->
+
 <section class="cta-section">
 
-<h2>Submit Your Research Today</h2>
+<h2>
+Submit Your Research Today
+</h2>
 
 <p>
-Join researchers and clinicians worldwide in advancing mental and community health sciences.
+Join researchers and clinicians worldwide in advancing mental and community healthcare research and scientific innovation.
 </p>
 
-<a href="submit.html">Submit Manuscript</a>
+<a href="submit.html">
+Submit Manuscript
+</a>
 
 </section>
+
+<!-- Footer -->
 
 <footer>
 
 <div class="footer-grid">
 
 <div>
+
 <h3>IJMCH</h3>
+
 <p>
-Indian Journal of Mental and Community Health is an international peer-reviewed open-access medical journal.
+Indian Journal of Mental and Community Health is an international peer-reviewed open-access medical journal dedicated to advancing global healthcare research.
 </p>
+
 </div>
 
 <div>
+
 <h3>Quick Links</h3>
+
 <a href="current-issue.html">Current Issue</a>
+
 <a href="archives.html">Archives</a>
+
 <a href="editorial.html">Editorial Board</a>
+
 <a href="guidelines.html">Author Guidelines</a>
+
 </div>
 
 <div>
+
 <h3>For Authors</h3>
+
 <a href="submit.html">Submit Manuscript</a>
+
 <a href="ethics.html">Publication Ethics</a>
+
 <a href="#">Peer Review Process</a>
+
 <a href="#">Open Access Policy</a>
+
 </div>
 
 <div>
-<h3>Contact</h3>
-<p>
-Email: editor@ijmch.in
-</p>
 
-<p>
-Website: www.ijmch.in
-</p>
+<h3>Contact</h3>
+
+<p>Email: editor@ijmch.in</p>
+
+<p>Website: www.ijmch.in</p>
+
 </div>
 
 </div>
 
 <div class="copyright">
-© 2026 Indian Journal of Mental and Community Health. All Rights Reserved.
+
+© 2026 Indian Journal of Mental and Community Health (IJMCH). All Rights Reserved.
+
 </div>
 
 </footer>
+
+</body>
+
+</html>
 
 </body>
 </html>
