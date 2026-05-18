@@ -1,52 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>National Tele-Mental Health Programme (Tele MANAS) in India: A Comparative Analysis with Global Telepsychiatry and Implications for Community Mental Health</title>
-
-<meta name="citation_title"
-content="National Tele-Mental Health Programme (Tele MANAS) in India: A Comparative Analysis with Global Telepsychiatry and Implications for Community Mental Health">
-
-<meta name="citation_author"
-content="Preeti Garg, Roopam Kapoor">
-
-<meta name="citation_journal_title"
-content="Indian Journal of Mental and Community Health">
-
-<meta name="citation_publication_date"
-content="2026">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-rel="stylesheet">
+<title>
+National Tele-Mental Health Programme (Tele MANAS) in India: A Comparative Analysis with Global Telepsychiatry and Implications for Community Mental Health
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-font-family:Arial, sans-serif;
-background:#ffffff;
-padding-top:40px;
-padding-bottom:40px;
+    font-family:'Poppins',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+    line-height:1.9;
 }
 
-.article-box{
-max-width:900px;
-margin:auto;
+/* Background Glow */
+
+body::before{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00d4ff25;
+    border-radius:50%;
+    top:-180px;
+    left:-120px;
+    filter:blur(120px);
+    z-index:-1;
 }
 
-.title{
-font-size:34px;
-font-weight:700;
-margin-bottom:20px;
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#7f5af025;
+    border-radius:50%;
+    bottom:-180px;
+    right:-120px;
+    filter:blur(120px);
+    z-index:-1;
 }
 
-.section-title{
-margin-top:30px;
-font-size:24px;
-font-weight:600;
+/* Navbar */
+
+.navbar{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,8,22,0.75);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00d4ff,#7f5af0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#00d4ff;
+}
+
+/* Main Container */
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+    padding:70px 0 100px;
+}
+
+/* Article Header */
+
+.article-header{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:35px;
+    padding:55px;
+    backdrop-filter:blur(18px);
+    margin-bottom:45px;
+    position:relative;
+    overflow:hidden;
+}
+
+.article-header::before{
+    content:'';
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:#00d4ff12;
+    border-radius:50%;
+    top:-70px;
+    right:-70px;
+}
+
+.article-type{
+    display:inline-block;
+    padding:8px 20px;
+    border-radius:40px;
+    background:linear-gradient(135deg,#00d4ff,#7f5af0);
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+.article-title{
+    font-family:'Playfair Display',serif;
+    font-size:50px;
+    line-height:1.3;
+    margin-bottom:30px;
+    color:white;
+}
+
+/* Authors */
+
+.author-box{
+    margin-bottom:20px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.author-box h3{
+    color:#00d4ff;
+    margin-bottom:8px;
+    font-size:22px;
+}
+
+.author-box p{
+    color:#dddddd;
+    font-size:15px;
+}
+
+.corresponding{
+    margin-top:25px;
+    color:#ffffff;
+}
+
+.corresponding a{
+    color:#00d4ff;
+    text-decoration:none;
+}
+
+/* Dates */
+
+.article-meta{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:35px;
+}
+
+.meta-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:22px;
+    padding:22px;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.meta-card h4{
+    color:#00d4ff;
+    margin-bottom:8px;
+    font-size:16px;
+}
+
+.meta-card p{
+    color:#dddddd;
+    font-size:15px;
+}
+
+/* Sections */
+
+.section{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:30px;
+    padding:45px;
+    backdrop-filter:blur(18px);
+    margin-bottom:35px;
+}
+
+.section h2{
+    font-size:36px;
+    margin-bottom:25px;
+    color:#00d4ff;
+}
+
+.section h3{
+    color:#7f5af0;
+    margin-top:25px;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.section p{
+    color:#dddddd;
+    font-size:16px;
+    text-align:justify;
+}
+
+/* Keywords */
+
+.keywords{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.keyword{
+    padding:10px 18px;
+    border-radius:40px;
+    background:rgba(0,212,255,0.12);
+    border:1px solid rgba(0,212,255,0.2);
+    color:#00d4ff;
+    font-size:14px;
+}
+
+/* Buttons */
+
+.download-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:35px;
+}
+
+.download-buttons a{
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:50px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.08);
+    color:white;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.download-buttons a:hover{
+    background:linear-gradient(135deg,#00d4ff,#7f5af0);
+    transform:translateY(-3px);
+}
+
+/* Footer */
+
+footer{
+    background:#02040f;
+    padding:40px 8%;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+footer p{
+    color:#aaaaaa;
+    line-height:1.9;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .article-title{
+        font-size:34px;
+    }
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links a{
+        margin:0 10px;
+    }
+
+    .section{
+        padding:30px;
+    }
+
+    .article-header{
+        padding:35px;
+    }
+
 }
 
 </style>
@@ -55,61 +318,131 @@ font-weight:600;
 
 <body>
 
+<!-- Navbar -->
+
+<nav class="navbar">
+
+<div class="logo">IJMCH</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="current-issue.html">Current Issue</a>
+<a href="archives.html">Archives</a>
+<a href="editorial.html">Editorial Board</a>
+<a href="contact.html">Contact</a>
+</div>
+
+</nav>
+
+<!-- Main Container -->
+
 <div class="container">
 
-<div class="article-box">
+<!-- Article Header -->
 
-<div class="title">
+<div class="article-header">
+
+<div class="article-type">
+LETTER TO EDITOR
+</div>
+
+<h1 class="article-title">
 National Tele-Mental Health Programme (Tele MANAS) in India: A Comparative Analysis with Global Telepsychiatry and Implications for Community Mental Health
-</div>
+</h1>
+
+<!-- Authors -->
+
+<div class="author-box">
+
+<h3>Pawan Kumar Goel</h3>
 
 <p>
-<strong>Authors:</strong>
+Shaheed Hasan Khan Mewati Government Medical College, Nuh, Haryana, India.
+</p>
+
+</div>
+
+<p class="corresponding">
+<strong>Corresponding Author:</strong>
+<a href="mailto: drpkgoelbobby@rediffmail.com">
 Pawan Kumar Goel
+</a>
 </p>
 
-<p>
-<strong>Journal:</strong>
-Indian Journal of Mental and Community Health
-</p>
+<!-- Article Meta -->
 
-<p>
-<strong>Volume:</strong> 1
-|
-<strong>Issue:</strong> 1
-|
-<strong>Year:</strong> 2026
-</p>
+<div class="article-meta">
 
-<hr>
-<p>
-Telemedicine, Tele-MANAS, Telepsychiatry, India, Haryana, Digital health, Community-based study.
-<div class="section-title">
-Corresponding Author
+<div class="meta-card">
+<h4>Received</h4>
+<p>27 February 2026</p>
 </div>
 
-<p>
-Pawan Goel
-</p>
-<a href="IJMCH6.pdf"
-class="btn btn-dark">
+<div class="meta-card">
+<h4>Accepted</h4>
+<p>21 April 2026</p>
+</div>
 
+<div class="meta-card">
+<h4>Published</h4>
+<p>13 May 2026</p>
+</div>
+
+</div>
+
+<!-- Buttons -->
+
+<div class="download-buttons">
+
+<a href="IJMCH6.pdf">
 Download PDF
-
 </a>
-<hr>
 
-<a href="current-issue.html"
-class="btn btn-outline-dark">
+<a href="#">
+View DOI
+</a>
 
-Back to Current Issue
-
+<a href="#">
+Cite Article
 </a>
 
 </div>
 
 </div>
+
+
+<!-- Keywords -->
+
+<div class="section">
+
+<h2>Keywords</h2>
+
+<div class="keywords">
+
+<div class="keyword">Telemedicine</div>
+
+<div class="keyword">Tele MANAS</div>
+
+<div class="keyword">Telepsychiatry</div>
+
+<div class="keyword">Mental Health</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+<p>
+© 2026 Indian Journal of Mental and Community Health (IJMCH)<br>
+Advancing Mental & Community Healthcare Through Scientific Excellence
+</p>
+
+</footer>
 
 </body>
-
 </html>
