@@ -1,26 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Impact of Smartphone Addiction on Sleep Quality and Mental Health Among College Students in Haryana
+Impact of Smartphone Addiction on Sleep Quality and Mental Health Among College Students in Haryana: A Cross-Sectional Study
 </title>
-
-<meta name="citation_title"
-content="Impact of Smartphone Addiction on Sleep Quality and Mental Health Among College Students in Haryana: A Cross-Sectional Study">
-
-<meta name="citation_author"
-content="Ashank Goel, Kapil Kumar Kamboj, Deepmala Kamboj">
-
-<meta name="citation_journal_title"
-content="Indian Journal of Mental and Community Health">
-
-<meta name="citation_publication_date"
-content="2026">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
@@ -40,7 +27,7 @@ body{
     line-height:1.9;
 }
 
-/* Background Effects */
+/* Background Glow */
 
 body::before{
     content:'';
@@ -104,7 +91,7 @@ body::after{
     color:#00d4ff;
 }
 
-/* Container */
+/* Main Container */
 
 .container{
     width:92%;
@@ -152,36 +139,68 @@ body::after{
     font-size:50px;
     line-height:1.3;
     margin-bottom:30px;
+    color:white;
 }
 
-/* Info Cards */
+/* Authors */
 
-.info-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    margin-top:30px;
-}
-
-.info-card{
-    background:rgba(255,255,255,0.05);
+.author-box{
+    margin-bottom:20px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.06);
-    border-radius:22px;
-    padding:22px;
 }
 
-.info-card h4{
+.author-box h3{
     color:#00d4ff;
-    margin-bottom:10px;
-    font-size:17px;
+    margin-bottom:8px;
+    font-size:22px;
 }
 
-.info-card p{
+.author-box p{
     color:#dddddd;
     font-size:15px;
 }
 
-/* Section */
+.corresponding{
+    margin-top:25px;
+    color:#ffffff;
+}
+
+.corresponding a{
+    color:#00d4ff;
+    text-decoration:none;
+}
+
+/* Dates */
+
+.article-meta{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:35px;
+}
+
+.meta-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:22px;
+    padding:22px;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.meta-card h4{
+    color:#00d4ff;
+    margin-bottom:8px;
+    font-size:16px;
+}
+
+.meta-card p{
+    color:#dddddd;
+    font-size:15px;
+}
+
+/* Sections */
 
 .section{
     background:rgba(255,255,255,0.05);
@@ -193,9 +212,9 @@ body::after{
 }
 
 .section h2{
-    color:#00d4ff;
     font-size:36px;
     margin-bottom:25px;
+    color:#00d4ff;
 }
 
 .section h3{
@@ -231,14 +250,14 @@ body::after{
 
 /* Buttons */
 
-.buttons{
+.download-buttons{
     display:flex;
     flex-wrap:wrap;
     gap:18px;
     margin-top:35px;
 }
 
-.buttons a{
+.download-buttons a{
     text-decoration:none;
     padding:14px 28px;
     border-radius:50px;
@@ -249,7 +268,7 @@ body::after{
     font-weight:500;
 }
 
-.buttons a:hover{
+.download-buttons a:hover{
     background:linear-gradient(135deg,#00d4ff,#7f5af0);
     transform:translateY(-3px);
 }
@@ -285,12 +304,12 @@ footer p{
         margin:0 10px;
     }
 
-    .article-header{
-        padding:35px;
-    }
-
     .section{
         padding:30px;
+    }
+
+    .article-header{
+        padding:35px;
     }
 
 }
@@ -321,7 +340,7 @@ footer p{
 
 <div class="container">
 
-<!-- Header -->
+<!-- Article Header -->
 
 <div class="article-header">
 
@@ -333,36 +352,71 @@ ORIGINAL ARTICLE
 Impact of Smartphone Addiction on Sleep Quality and Mental Health Among College Students in Haryana: A Cross-Sectional Study
 </h1>
 
-<div class="info-grid">
+<!-- Authors -->
 
-<div class="info-card">
-<h4>Authors</h4>
+<div class="author-box">
+
+<h3>Ashank Goel</h3>
+
 <p>
-Ashank Goel<br>
-Kapil Kumar Kamboj<br>
-Deepmala Kamboj
+Maharishi Markandeshwar Institute of Medical Sciences and Research, Mullana (Ambala), Haryana, India.
 </p>
+
 </div>
 
-<div class="info-card">
-<h4>Journal</h4>
+<div class="author-box">
+
+<h3>Kapil Kumar Kamboj</h3>
+
 <p>
-Indian Journal of Mental and Community Health
+Maharishi Markandeshwar Institute of Medical Sciences and Research, Mullana (Ambala), Haryana, India.
 </p>
+
 </div>
 
-<div class="info-card">
-<h4>Publication</h4>
+<div class="author-box">
+
+<h3>Deepmala Kamboj</h3>
+
 <p>
-Volume 1 • Issue 1 • 2026
+Mukand Lal National College, Yamunanagar, Haryana, India.
 </p>
+
+</div>
+
+<p class="corresponding">
+<strong>Corresponding Author:</strong>
+<a href="mailto:drkambojkapil84@gmail.com ">
+Kapil Kumar Kamboj
+</a>
+</p>
+
+<!-- Article Meta -->
+
+<div class="article-meta">
+
+<div class="meta-card">
+<h4>Received</h4>
+<p>12 February 2026</p>
+</div>
+
+<div class="meta-card">
+<h4>Accepted</h4>
+<p>19 April 2026</p>
+</div>
+
+<div class="meta-card">
+<h4>Published</h4>
+<p>10 May 2026</p>
 </div>
 
 </div>
 
-<div class="buttons">
+<!-- Buttons -->
 
-<a href="IJMCH2.pdf" target="_blank">
+<div class="download-buttons">
+
+<a href="IJMCH2.pdf">
 Download PDF
 </a>
 
@@ -370,8 +424,8 @@ Download PDF
 View DOI
 </a>
 
-<a href="current-issue.html">
-Back to Current Issue
+<a href="#">
+Cite Article
 </a>
 
 </div>
@@ -387,25 +441,23 @@ Back to Current Issue
 <h3>Background</h3>
 
 <p>
-Smartphone addiction has emerged as a growing public health concern, particularly among college students, due to its potential impact on sleep quality and mental health. Excessive smartphone use is associated with behavioural dependence, disrupted sleep patterns, and increased psychological distress.
+Smartphone addiction has emerged as a growing public health concern, particularly among college students, due to its potential impact on sleep quality and mental health. Excessive smartphone use is associated with behavioural dependence, disrupted sleep patterns, and increased psychological distress. Objective: To assess the prevalence of smartphone addiction and examine its association with sleep quality and mental health among college students in Haryana. 
 </p>
 
-<h3>Objective</h3>
-
+<h3>Objectives</h3>
+    
 <p>
-To assess the prevalence of smartphone addiction and examine its association with sleep quality and mental health among college students in Haryana.
+To assess the prevalence of smartphone addiction and examine its association with sleep quality and mental health among college students in Haryana.    
 </p>
-
+    
 <h3>Methods</h3>
-
 <p>
-A cross-sectional study was conducted among 420 undergraduate and postgraduate students aged 18–25 years. Data were collected using standardized tools, including the Smartphone Addiction Scale–Short Version (SAS-SV), Pittsburgh Sleep Quality Index (PSQI), and Depression Anxiety Stress Scale (DASS-21). Descriptive statistics, chi-square testing, and Pearson correlation analysis were performed with statistical significance set at p &lt; 0.05.
+A cross-sectional study was conducted among 420 undergraduate and postgraduate students aged 18–25 years. Data were collected using standardized tools, including the Smartphone Addiction Scale–Short Version (SAS-SV), Pittsburgh Sleep Quality Index (PSQI), and Depression Anxiety Stress Scale (DASS-21). Descriptive statistics, chi-square test, and Pearson correlation analysis were applied, with p < 0.05 considered statistically significant. 
 </p>
-
+    
 <h3>Results</h3>
-
 <p>
-The prevalence of smartphone addiction was 56.7%. Poor sleep quality was reported by 60% of participants. Regarding mental health outcomes, 19.1% had severe depression, 19.0% severe anxiety, and 17.9% severe stress. Significant associations were observed between smartphone addiction and poor sleep quality. Correlation analysis demonstrated moderate positive correlations between smartphone addiction and sleep quality, depression, anxiety, and stress levels.
+The prevalence of smartphone addiction was 56.7%. Poor sleep quality was reported by 60% of participants. Regarding mental health, 19.1% had severe depression, 19.0% severe anxiety, and 17.9% severe stress. A significant association was observed between smartphone addiction and poor sleep quality (p < 0.001). Correlation analysis revealed moderate positive correlations between smartphone addiction and sleep quality (r = 0.48), depression (r = 0.42), anxiety (r = 0.45), and stress (r = 0.39), all statistically significant. 
 </p>
 
 <h3>Conclusion</h3>
@@ -424,13 +476,13 @@ Smartphone addiction is highly prevalent among college students and is significa
 
 <div class="keywords">
 
-<div class="keyword">Smartphone Addiction</div>
+<div class="keyword">Smartphone addiction</div>
 
-<div class="keyword">Sleep Quality</div>
+<div class="keyword">Sleep quality</div>
 
 <div class="keyword">Mental Health</div>
 
-<div class="keyword">College Students</div>
+<div class="keyword">College students</div>
 
 <div class="keyword">Depression</div>
 
@@ -438,25 +490,9 @@ Smartphone addiction is highly prevalent among college students and is significa
 
 <div class="keyword">Stress</div>
 
-<div class="keyword">PSQI</div>
-
-<div class="keyword">DASS-21</div>
-
 <div class="keyword">Haryana</div>
 
 </div>
-
-</div>
-
-<!-- Corresponding Author -->
-
-<div class="section">
-
-<h2>Corresponding Author</h2>
-
-<p>
-<strong>Kapil Kumar Kamboj</strong>
-</p>
 
 </div>
 
@@ -474,5 +510,4 @@ Advancing Mental & Community Healthcare Through Scientific Excellence
 </footer>
 
 </body>
-
 </html>
