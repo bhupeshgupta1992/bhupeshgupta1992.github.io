@@ -12,7 +12,7 @@ with open("data/articles.json", "r", encoding="utf-8") as f:
 
 
 # ---------------------------------------
-# Load article template
+# Load template
 # ---------------------------------------
 
 template = Path(
@@ -21,7 +21,7 @@ template = Path(
 
 
 # ---------------------------------------
-# Generate each article
+# Generate articles
 # ---------------------------------------
 
 for article in articles:
@@ -33,15 +33,21 @@ for article in articles:
     )
 
     article_type = escape(
-        article.get("type", "ORIGINAL ARTICLE")
+        article.get(
+            "type",
+            "ORIGINAL ARTICLE"
+        )
     )
 
-    authors = article.get("authors", [])
-
 
     # -----------------------------------
-    # Authors HTML
+    # Authors
     # -----------------------------------
+
+    authors = article.get(
+        "authors",
+        []
+    )
 
     authors_html = ""
 
@@ -52,7 +58,10 @@ for article in articles:
         )
 
         affiliation = escape(
-            author.get("affiliation", "")
+            author.get(
+                "affiliation",
+                ""
+            )
         )
 
         authors_html += f"""
@@ -69,7 +78,7 @@ for article in articles:
 
 
     # -----------------------------------
-    # Google Scholar author metadata
+    # Google Scholar authors
     # -----------------------------------
 
     authors_meta = ""
@@ -81,13 +90,13 @@ for article in articles:
         )
 
         authors_meta += (
-            f'<meta name="citation_author" '
+            '<meta name="citation_author" '
             f'content="{name}">\n'
         )
 
 
     # -----------------------------------
-    # Schema.org authors
+    # Schema authors
     # -----------------------------------
 
     schema_authors = []
@@ -105,7 +114,6 @@ for article in articles:
             '}'
         )
 
-
     authors_schema = ",\n".join(
         schema_authors
     )
@@ -118,7 +126,8 @@ for article in articles:
     abstract_html = ""
 
     abstract = article.get(
-        "abstract", {}
+        "abstract",
+        {}
     )
 
     for heading, text in abstract.items():
@@ -139,7 +148,8 @@ for article in articles:
     keywords_html = ""
 
     for keyword in article.get(
-        "keywords", []
+        "keywords",
+        []
     ):
 
         keywords_html += f"""
@@ -150,18 +160,35 @@ for article in articles:
 
 
     # -----------------------------------
-    # DOI button
+    # DOI
     # -----------------------------------
 
     doi = article.get(
-        "doi", ""
+        "doi",
+        ""
     ).strip()
 
 
     if doi:
 
+        # If DOI is entered as a complete
+        # https://doi.org/... URL, use it.
+        if doi.startswith(
+            "https://doi.org/"
+        ):
+
+            doi_url = doi
+
+        else:
+
+            doi_url = (
+                "https://doi.org/"
+                + doi
+            )
+
+
         doi_button = f"""
-<a href="https://doi.org/{escape(doi)}"
+<a href="{escape(doi_url)}"
    target="_blank"
    rel="noopener">
 View DOI
@@ -171,6 +198,38 @@ View DOI
     else:
 
         doi_button = ""
+
+
+    # -----------------------------------
+    # Pages
+    # -----------------------------------
+
+    pages = article.get(
+        "pages",
+        ""
+    ).strip()
+
+
+    first_page = ""
+    last_page = ""
+
+
+    if pages:
+
+        if "-" in pages:
+
+            parts = pages.split(
+                "-",
+                1
+            )
+
+            first_page = parts[0].strip()
+            last_page = parts[1].strip()
+
+        else:
+
+            first_page = pages
+            last_page = pages
 
 
     # -----------------------------------
@@ -237,6 +296,37 @@ View DOI
                 )
             ),
 
+        "{{VOLUME}}":
+            escape(
+                article.get(
+                    "volume",
+                    ""
+                )
+            ),
+
+        "{{ISSUE}}":
+            escape(
+                article.get(
+                    "issue",
+                    ""
+                )
+            ),
+
+        "{{PAGES}}":
+            escape(
+                pages
+            ),
+
+        "{{FIRSTPAGE}}":
+            escape(
+                first_page
+            ),
+
+        "{{LASTPAGE}}":
+            escape(
+                last_page
+            ),
+
         "{{PDF}}":
             escape(
                 article.get(
@@ -271,7 +361,7 @@ View DOI
 
 
     # -----------------------------------
-    # Save article page
+    # Save generated article
     # -----------------------------------
 
     output_file = Path(
@@ -282,7 +372,6 @@ View DOI
         html,
         encoding="utf-8"
     )
-
 
     print(
         f"Generated: {output_file}"
