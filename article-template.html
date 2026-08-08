@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{TITLE}} | Indian Journal of Mental and Community Health</title>
+
+<meta name="description" content="{{TITLE}}">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical"
+      href="https://ijmch.in/{{ID}}.html">
+
+
+<!-- Google Scholar Metadata -->
+
+<meta name="citation_title"
+      content="{{TITLE}}">
+
+{{AUTHORS_META}}
+
+<meta name="citation_journal_title"
+      content="Indian Journal of Mental and Community Health">
+
+<meta name="citation_publication_date"
+      content="{{DATE}}">
+
+<meta name="citation_pdf_url"
+      content="https://ijmch.in/{{PDF}}">
+
+
+<!-- Schema.org Scholarly Article -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+
+  "headline": "{{TITLE}}",
+
+  "author": [
+    {{AUTHORS_SCHEMA}}
+  ],
+
+  "datePublished": "{{DATE}}",
+
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Indian Journal of Mental and Community Health"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "name": "Indian Journal of Mental and Community Health",
+    "url": "https://ijmch.in/"
+  },
+
+  "url": "https://ijmch.in/{{ID}}.html",
+
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://ijmch.in/{{PDF}}",
+    "encodingFormat": "application/pdf"
+  }
+}
+</script>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+    line-height:1.9;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00d4ff25;
+    border-radius:50%;
+    top:-180px;
+    left:-120px;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#7f5af025;
+    border-radius:50%;
+    bottom:-180px;
+    right:-120px;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+.navbar{
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,8,22,0.75);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00d4ff,#7f5af0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#00d4ff;
+}
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+    padding:70px 0 100px;
+}
+
+.article-header{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:35px;
+    padding:55px;
+    backdrop-filter:blur(18px);
+    margin-bottom:45px;
+    position:relative;
+    overflow:hidden;
+}
+
+.article-header::before{
+    content:'';
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:#00d4ff12;
+    border-radius:50%;
+    top:-70px;
+    right:-70px;
+}
+
+.article-type{
+    display:inline-block;
+    padding:8px 20px;
+    border-radius:40px;
+    background:linear-gradient(135deg,#00d4ff,#7f5af0);
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+.article-title{
+    font-family:'Playfair Display',serif;
+    font-size:50px;
+    line-height:1.3;
+    margin-bottom:30px;
+    color:white;
+}
+
+.author-box{
+    margin-bottom:20px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.author-box h3{
+    color:#00d4ff;
+    margin-bottom:8px;
+    font-size:22px;
+}
+
+.author-box p{
+    color:#dddddd;
+    font-size:15px;
+}
+
+.corresponding{
+    margin-top:25px;
+    color:#ffffff;
+}
+
+.corresponding a{
+    color:#00d4ff;
+    text-decoration:none;
+}
+
+.article-meta{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:35px;
+}
+
+.meta-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:22px;
+    padding:22px;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.meta-card h4{
+    color:#00d4ff;
+    margin-bottom:8px;
+    font-size:16px;
+}
+
+.meta-card p{
+    color:#dddddd;
+    font-size:15px;
+}
+
+.section{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:30px;
+    padding:45px;
+    backdrop-filter:blur(18px);
+    margin-bottom:35px;
+}
+
+.section h2{
+    font-size:36px;
+    margin-bottom:25px;
+    color:#00d4ff;
+}
+
+.section h3{
+    color:#7f5af0;
+    margin-top:25px;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.section p{
+    color:#dddddd;
+    font-size:16px;
+    text-align:justify;
+}
+
+.keywords{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.keyword{
+    padding:10px 18px;
+    border-radius:40px;
+    background:rgba(0,212,255,0.12);
+    border:1px solid rgba(0,212,255,0.2);
+    color:#00d4ff;
+    font-size:14px;
+}
+
+.download-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:35px;
+}
+
+.download-buttons a{
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:50px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.08);
+    color:white;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.download-buttons a:hover{
+    background:linear-gradient(135deg,#00d4ff,#7f5af0);
+    transform:translateY(-3px);
+}
+
+footer{
+    background:#02040f;
+    padding:40px 8%;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+footer p{
+    color:#aaaaaa;
+    line-height:1.9;
+}
+
+@media(max-width:768px){
+
+    .article-title{
+        font-size:34px;
+    }
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links a{
+        margin:0 10px;
+    }
+
+    .section{
+        padding:30px;
+    }
+
+    .article-header{
+        padding:35px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+<div class="logo">
+IJMCH
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+
+<a href="current-issue.html">Current Issue</a>
+
+<a href="archives.html">Archives</a>
+
+<a href="editorial.html">Editorial Board</a>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
+</nav>
+
+
+<div class="container">
+
+
+<div class="article-header">
+
+
+<div class="article-type">
+{{TYPE}}
+</div>
+
+
+<h1 class="article-title">
+{{TITLE}}
+</h1>
+
+
+{{AUTHORS_HTML}}
+
+
+<p class="corresponding">
+
+<strong>Corresponding Author:</strong>
+
+<a href="mailto:{{CORRESPONDING_EMAIL}}">
+
+{{CORRESPONDING_EMAIL}}
+
+</a>
+
+</p>
+
+
+<div class="article-meta">
+
+
+<div class="meta-card">
+
+<h4>Received</h4>
+
+<p>
+{{RECEIVED}}
+</p>
+
+</div>
+
+
+<div class="meta-card">
+
+<h4>Accepted</h4>
+
+<p>
+{{ACCEPTED}}
+</p>
+
+</div>
+
+
+<div class="meta-card">
+
+<h4>Published</h4>
+
+<p>
+{{PUBLISHED}}
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="download-buttons">
+
+<a href="{{PDF}}">
+Download PDF
+</a>
+
+
+{{DOI_BUTTON}}
+
+
+<a href="#citation">
+Cite Article
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="section">
+
+<h2>Abstract</h2>
+
+
+{{ABSTRACT_HTML}}
+
+
+</div>
+
+
+<div class="section">
+
+<h2>Keywords</h2>
+
+
+<div class="keywords">
+
+{{KEYWORDS_HTML}}
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+<p>
+
+© 2026 Indian Journal of Mental and Community Health (IJMCH)<br>
+
+Advancing Mental &amp; Community Healthcare Through Scientific Excellence
+
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
