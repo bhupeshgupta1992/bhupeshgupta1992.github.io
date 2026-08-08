@@ -1,16 +1,61 @@
 [
   {
     "id": "article1",
+    "type": "ORIGINAL ARTICLE",
+
     "title": "Prevalence and Determinants of Common Mental Disorders Among Women in Rural Areas of Ambala: A Community-Based Cross-Sectional Study in Haryana",
+
     "authors": [
-      "Kashish Narula",
-      "Prerna Sharma",
-      "Anshu Mittal"
+      {
+        "name": "Kashish Narula",
+        "affiliation": "Maharishi Markandeshwar Institute of Medical Sciences and Research, Mullana (Ambala), Haryana, India."
+      },
+      {
+        "name": "Prerna Sharma",
+        "affiliation": "Maharishi Markandeshwar Institute of Medical Sciences and Research, Mullana (Ambala), Haryana, India."
+      },
+      {
+        "name": "Anshu Mittal",
+        "affiliation": "Maharishi Markandeshwar Institute of Medical Sciences and Research, Mullana (Ambala), Haryana, India."
+      }
     ],
-    "publication_date": "2026/05/01",
+
+    "corresponding_author": "Kashish Narula",
+    "corresponding_email": "kashishnarula.155@gmail.com",
+
+    "received": "2 February 2026",
+    "accepted": "13 April 2026",
+    "published": "1 May 2026",
+    "publication_date": "2026-05-01",
+
     "volume": "",
     "issue": "",
     "pages": "",
-    "pdf": "IJMCH1.pdf"
+    "doi": "",
+
+    "pdf": "IJMCH1.pdf",
+
+    "abstract": {
+      "Background": "Common mental disorders (CMDs), including depression and anxiety, disproportionately affect rural women in India due to socio-economic, gender, and cultural factors. Localized data from villages in rural Haryana are limited.",
+
+      "Objectives": "To determine the prevalence of CMDs and associated socio-demographic and contextual determinants among adult women in Village Dheen (also spelt Dhin), Barara Tehsil, Ambala District, Haryana.",
+
+      "Methods": "Community-based cross-sectional study in Village Dheen during January–June 2025 fieldwork. Systematic random sampling enrolled 340 eligible women aged 18–60 years. CMD screening used GHQ-12, with PHQ-9 and GAD-7 for symptom severity assessment. Data analysis was performed using SPSS version 25 with descriptive statistics, chi-square testing, and multivariate logistic regression.",
+
+      "Results": "Mean age was 37.8 ± 10.9 years. CMD prevalence was 19.7% (95% CI: 15.6–24.4). Anxiety symptoms were identified in 16.2% participants, while depressive symptoms were observed in 13.5%. Independent predictors included low education, marital disruption, poor financial status, and domestic or gender-related stressors.",
+
+      "Conclusion": "Nearly one in five women experiences CMDs, with anxiety being more prominent. Education, marital status, economic hardship, and socio-cultural stressors were key determinants. Routine community screening and mental health interventions are recommended for rural Haryana."
+    },
+
+    "keywords": [
+      "Common Mental Disorders",
+      "Rural Women",
+      "Mental Health",
+      "Prevalence",
+      "Determinants",
+      "Haryana",
+      "Ambala",
+      "Cross-Sectional Study"
+    ]
   }
 ]
